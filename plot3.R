@@ -15,8 +15,9 @@ data <- transform(data, timestamp=as.POSIXct(paste(Date, Time)), "%d/%m/%Y %H:%M
 
 # builds plot
 plot(data$timestamp, data$Sub_metering_1, ylab = "Energy sub metering)", xlab = "", type = "l")
-lines(data$timestamp, data$Sub_metering_1, col = "Red")
-lines(data$timestamp, data$Sub_metering_2, col = "Blue")
+lines(data$timestamp, data$Sub_metering_2, col = "Red")
+lines(data$timestamp, data$Sub_metering_3, col = "Blue")
+legend("topright", c("Sub_metering_1  ","Sub_metering_2  ", "Sub_metering_3  "), col=c("black","red","blue"), ,lty=c(1,1), lwd=c(1,1))
 
 #creates pgn file
 dev.copy(png, file = "plot2.png", height = 480, width = 480)
